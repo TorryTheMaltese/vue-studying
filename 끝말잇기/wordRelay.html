@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+
+    <div id="root">
+      <word-relay start-word="test"></word-relay><br>
+      <word-relay start-word="torry"></word-relay><br>
+      <word-relay start-word="trial"></word-relay><br>
+    </div>
+
+  </body>
+
+  <mscript>
+    Vue.component('word-relay', {
+      template: `
+        <div>
+          <div>{{ word }}</div>
+            <form v-on:submit="onSubmitForm">
+              <input type="text" v-model="value" ref="answer"/>
+              <button type="submit">Go !</button>
+            </form>
+          <div>{{ result }}</div>
+        </div>
+      `,
+      props: ['startWord'],
+      data() {
+        return{
+          word: this.startWord,
+          result: '',
+          value: ''
+        }
+      },
+      methods: {
+        onSubmitForm(e) {
+          e.preventDefault();
+          if (this.word[this.word.length - 1] === this.value[0]) {
+            this.result = 'Great!',
+            this.word = this.value,
+            this.value = '',
+            this.$refs.answer.focus()
+          }
+          else {
+            this.result = 'Nah..',
+            this.value = '',
+            this.$refs.answer.focus()
+          }
+        }
+      }
+    })
+  </script>
+
+  <script>
+    const app = new Vue ({
+      el: '#root'
+    })
+  </script>
+
+</html>
