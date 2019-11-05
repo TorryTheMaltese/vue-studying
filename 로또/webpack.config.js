@@ -1,5 +1,5 @@
 const path = require('path');
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
   mode: 'development',  // 배포 시 production
@@ -14,6 +14,12 @@ module.exports = {
     rules: [{
       test: /\.vue$/,
       loader: 'vue-loader'
+    },{
+      test: /\.css$/,
+      use: [
+        'vue-style-loader',
+        'css-loader'
+      ]
     }]
   },
   plugins: [
@@ -21,6 +27,7 @@ module.exports = {
   ],
   output: {
     filename: '[name].js', //app.js
-    path: path.join(__dirname, 'dist')
+    path: path.join(__dirname, 'dist'),
+    publicPath: '/dist'
   }
 };

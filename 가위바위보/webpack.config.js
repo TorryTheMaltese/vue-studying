@@ -3,7 +3,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
   mode: 'development',  // 배포 시 production
-  devtool: 'eval',     // 배포 시 hidden-source-map
+  devtool: 'eval',      // 배포 시 hidden-source-map
   resolve: {
     extensions: ['.js', '.vue']
   },
