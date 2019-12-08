@@ -8,8 +8,9 @@ https://www.youtube.com/watch?v=TIHluPn05VY&list=
 2. npm i webpack webpack-cli -D
 3. npm i webpack-dev-server -D
 4. npm i vue-loader -D
-5. npm i vue-style-loader -D
-6. npm i css-loader -D
+5. npm i vue-template-compiler -D
+6. npm i vue-style-loader -D
+7. npm i css-loader -D
 
 ### Run
 1. npm i
